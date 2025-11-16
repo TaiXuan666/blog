@@ -6,3 +6,8 @@
 [java基础学习](https://blog-dmn.pages.dev/#/blog/java)
 
 [git基础学习](https://blog-dmn.pages.dev/#/blog/git)
+
+[java软件安装](https://blog-dmn.pages.dev/#/blog/software)
+
+
+
