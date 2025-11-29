@@ -38,10 +38,9 @@ body {
   border: 1px solid transparent; /* 边框默认透明，后续按类名赋值 */
 }
 
-/* 卡片标题样式（统一优化，适配深色背景） */
+/* 卡片标题样式（根据背景深浅自动适配文字颜色） */
 .card h3 {
   margin: 0; /* 清除默认边距，避免布局错乱 */
-  color: #fff; /* 白色文字，在深色背景上更清晰 */
   font-size: 17px; /* 字体大小适中 */
   font-weight: 500; /* 字体粗细适中，不突兀 */
   letter-spacing: 0.5px; /* 轻微字间距，提升可读性 */
@@ -55,100 +54,124 @@ body {
   height: 100%; /* 高度100%，确保整个卡片可点击 */
 }
 
-/* 1. 第一个卡片（java软件安装）- 深绿色系 */
+/* 1. 第一个卡片（java软件安装）- 柔和浅黄色（对应图片1） */
 .card-link1 .card {
-  background-color: #2e7d32; /* 卡片背景色 */
-  border-color: #1b5e20; /* 卡片边框色（略深于背景） */
+  background-color: #FFF9C4; /* 提取图片颜色 */
+  border-color: #F5F0B0; /* 略深同色系边框 */
+}
+.card-link1 .card h3 {
+  color: #333; /* 浅色背景用深色文字 */
 }
 .card-link1:hover .card {
-  background-color: #388e3c; /* 悬停时背景变亮 */
-  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.2); /* 同色系阴影，增强层次 */
-  transform: translateY(-5px); /* 向上上浮5px，交互感拉满 */
-  border-color: #2e7d32; /* 悬停时边框色加深 */
+  background-color: #FFFDE7; /* 悬停变浅 */
+  box-shadow: 0 8px 25px rgba(255, 249, 196, 0.3);
+  transform: translateY(-5px);
+  border-color: #FFF9C4;
 }
 
-/* 2. 第二个卡片（java基础学习）- 浅绿色系 */
+/* 2. 第二个卡片（java基础学习）- 柔和浅青色（对应图片2） */
 .card-link2 .card {
-  background-color: #4caf50;
-  border-color: #388e3c;
+  background-color: #E0F7FA;
+  border-color: #B2EBF2;
+}
+.card-link2 .card h3 {
+  color: #333;
 }
 .card-link2:hover .card {
-  background-color: #66bb6a;
-  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+  background-color: #F5FCFF;
+  box-shadow: 0 8px 25px rgba(224, 247, 250, 0.3);
   transform: translateY(-5px);
-  border-color: #4caf50;
+  border-color: #E0F7FA;
 }
 
-/* 3. 第三个卡片（mysql基础学习）- 深蓝色系 */
+/* 3. 第三个卡片（mysql基础学习）- 柔和浅粉色（对应图片3） */
 .card-link3 .card {
-  background-color: #1976d2;
-  border-color: #0d47a1;
+  background-color: #FFEBEE;
+  border-color: #FFCDD2;
+}
+.card-link3 .card h3 {
+  color: #333;
 }
 .card-link3:hover .card {
-  background-color: #1e88e5;
-  box-shadow: 0 8px 25px rgba(25, 118, 210, 0.2);
+  background-color: #FFF8F9;
+  box-shadow: 0 8px 25px rgba(255, 235, 238, 0.3);
   transform: translateY(-5px);
-  border-color: #1976d2;
+  border-color: #FFEBEE;
 }
 
-/* 4. 第四个卡片（vue3基础学习）- Vue标志性绿色 */
+/* 4. 第四个卡片（vue3基础学习）- 柔和浅橙红（对应图片4） */
 .card-link4 .card {
-  background-color: #42b983;
-  border-color: #359e75;
+  background-color: #FFCCBC;
+  border-color: #FFAB91;
+}
+.card-link4 .card h3 {
+  color: #333;
 }
 .card-link4:hover .card {
-  background-color: #4fc08d;
-  box-shadow: 0 8px 25px rgba(66, 185, 131, 0.2);
+  background-color: #FFE0D6;
+  box-shadow: 0 8px 25px rgba(255, 204, 188, 0.3);
   transform: translateY(-5px);
-  border-color: #42b983;
+  border-color: #FFCCBC;
 }
 
-/* 5. 第五个卡片（git基础学习）- 橙红色系 */
+/* 5. 第五个卡片（git基础学习）- 柔和浅紫色（对应图片5） */
 .card-link5 .card {
-  background-color: #e53935;
-  border-color: #c62828;
+  background-color: #F3E5F5;
+  border-color: #CE93D8;
+}
+.card-link5 .card h3 {
+  color: #333;
 }
 .card-link5:hover .card {
-  background-color: #f44336;
-  box-shadow: 0 8px 25px rgba(229, 57, 53, 0.2);
+  background-color: #FAF4FF;
+  box-shadow: 0 8px 25px rgba(243, 229, 245, 0.3);
   transform: translateY(-5px);
-  border-color: #e53935;
+  border-color: #F3E5F5;
 }
 
-/* 6. 第六个卡片（redis基础学习）- 红色系 */
+/* 6. 第六个卡片（redis基础学习）- 柔和浅玫瑰色（对应图片6） */
 .card-link6 .card {
-  background-color: #d32f2f;
-  border-color: #b71c1c;
+  background-color: #FCE4EC;
+  border-color: #F8BBD0;
+}
+.card-link6 .card h3 {
+  color: #333;
 }
 .card-link6:hover .card {
-  background-color: #e53935;
-  box-shadow: 0 8px 25px rgba(211, 47, 47, 0.2);
+  background-color: #FFF1F7;
+  box-shadow: 0 8px 25px rgba(252, 228, 236, 0.3);
   transform: translateY(-5px);
-  border-color: #d32f2f;
+  border-color: #FCE4EC;
 }
 
-/* 7. 第七个卡片（mysql部署）- 浅蓝色系 */
+/* 7. 第七个卡片（mysql部署）- 柔和浅棕粉（对应图片7） */
 .card-link7 .card {
-  background-color: #2196f3;
-  border-color: #1976d2;
+  background-color: #EFEBE9;
+  border-color: #D7CCC8;
+}
+.card-link7 .card h3 {
+  color: #333;
 }
 .card-link7:hover .card {
-  background-color: #42a5f5;
-  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.2);
+  background-color: #F9F6F3;
+  box-shadow: 0 8px 25px rgba(239, 235, 233, 0.3);
   transform: translateY(-5px);
-  border-color: #2196f3;
+  border-color: #EFEBE9;
 }
 
-/* 8. 第八个卡片（redis部署）- 粉红色系 */
+/* 8. 第八个卡片（redis部署）- 柔和浅鹅黄（对应图片8） */
 .card-link8 .card {
-  background-color: #c2185b;
-  border-color: #880e4f;
+  background-color: #FFF8E1;
+  border-color: #FFE082;
+}
+.card-link8 .card h3 {
+  color: #333;
 }
 .card-link8:hover .card {
-  background-color: #d81b60;
-  box-shadow: 0 8px 25px rgba(194, 24, 91, 0.2);
+  background-color: #FFFCE7;
+  box-shadow: 0 8px 25px rgba(255, 248, 225, 0.3);
   transform: translateY(-5px);
-  border-color: #c2185b;
+  border-color: #FFF8E1;
 }
 
 /* 手机端响应式适配（小屏幕单列显示） */
