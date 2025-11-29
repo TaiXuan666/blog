@@ -2,13 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Java学习</title>
+  <title>学习笔记</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="icon" href="assets/images/favicon.jpg" type="image/x-icon" />
   <link rel="stylesheet" href="assets/csshub.css">
 </head>
+<style>
+    /* 页面整体背景色，衬托卡片 */
+    body {
+      background-color: #f9fafb;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 卡片容器：控制卡片布局 */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* 自适应列数 */
+      gap: 20px; /* 卡片间距 */
+      padding: 40px 20px; /* 上下左右留白 */
+      max-width: 1300px; /* 最大宽度，避免超宽 */
+      margin: 0 auto; /* 容器居中 */
+    }
+
+    /* 卡片样式：圆角+阴影 */
+    .card {
+      background-color: #fff; /* 卡片白色背景 */
+      border-radius: 12px; /* 四角圆润 */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 轻微阴影 */
+      padding: 30px 15px; /* 卡片内边距 */
+      transition: all 0.3s ease; /* 动画过渡 */
+      text-align: center; /* 标题居中 */
+      border: 1px solid #f0f0f0; /* 细边框，不单调 */
+    }
+
+    /* 卡片标题样式 */
+    .card h3 {
+      margin: 0; /* 清除默认边距 */
+      color: #333; /* 标题深灰色 */
+      font-size: 17px; /* 字体大小 */
+      font-weight: 500; /* 字体粗细适中 */
+    }
+
+    /* 卡片链接：去除下划线，整个卡片可点击 */
+    .card-link {
+      text-decoration: none; /* 去掉链接下划线 */
+      display: block; /* 链接占满卡片 */
+      height: 100%; /* 点击无死角 */
+    }
+
+    /* 鼠标悬停效果（核心美化） */
+    .card:hover {
+      transform: translateY(-5px); /* 向上上浮5px */
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* 阴影加深 */
+      border-color: #e8f4f8; /* 边框变色 */
+      background-color: #fafafa; /* 背景轻微变浅 */
+    }
+
+    /* 手机端适配：单列显示 */
+    @media (max-width: 768px) {
+      .card-container {
+        grid-template-columns: 1fr; /* 小屏幕单列 */
+        padding: 20px 15px; /* 调整留白 */
+        gap: 15px; /* 缩小间距 */
+      }
+      .card {
+        padding: 25px 15px; /* 调整内边距 */
+      }
+    }
+  </style>
 <body>
 
   <div id="app">页面被外星人夺走了,全力抢回中...</div>
