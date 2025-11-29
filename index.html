@@ -11,68 +11,160 @@
 </head>
 <style>
     /* 页面整体背景色，衬托卡片 */
-    body {
-      background-color: #f9fafb;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+body {
+  background-color: #f9fafb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-    /* 卡片容器：控制卡片布局 */
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* 自适应列数 */
-      gap: 20px; /* 卡片间距 */
-      padding: 40px 20px; /* 上下左右留白 */
-      max-width: 1300px; /* 最大宽度，避免超宽 */
-      margin: 0 auto; /* 容器居中 */
-    }
+/* 卡片容器：控制卡片布局（自适应列数） */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px; /* 卡片之间的间距 */
+  padding: 40px 20px; /* 上下左右留白，避免贴边 */
+  max-width: 1300px; /* 最大宽度，防止超宽变形 */
+  margin: 0 auto; /* 容器水平居中 */
+}
 
-    /* 卡片样式：圆角+阴影 */
-    .card {
-      background-color: #fff; /* 卡片白色背景 */
-      border-radius: 12px; /* 四角圆润 */
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 轻微阴影 */
-      padding: 30px 15px; /* 卡片内边距 */
-      transition: all 0.3s ease; /* 动画过渡 */
-      text-align: center; /* 标题居中 */
-      border: 1px solid #f0f0f0; /* 细边框，不单调 */
-    }
+/* 卡片基础样式（公共属性，所有卡片共享） */
+.card {
+  border-radius: 12px; /* 四角圆润，符合你的需求 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 轻微阴影，增强立体感 */
+  padding: 30px 15px; /* 卡片内边距，避免文字贴边 */
+  transition: all 0.3s ease; /* 所有动画平滑过渡 */
+  text-align: center; /* 标题居中，更美观 */
+  border: 1px solid transparent; /* 边框默认透明，后续按类名赋值 */
+}
 
-    /* 卡片标题样式 */
-    .card h3 {
-      margin: 0; /* 清除默认边距 */
-      color: #333; /* 标题深灰色 */
-      font-size: 17px; /* 字体大小 */
-      font-weight: 500; /* 字体粗细适中 */
-    }
+/* 卡片标题样式（统一优化，适配彩色背景） */
+.card h3 {
+  margin: 0; /* 清除默认边距，避免布局错乱 */
+  color: #fff; /* 白色文字，在彩色背景上更清晰 */
+  font-size: 17px; /* 字体大小适中 */
+  font-weight: 500; /* 字体粗细适中，不突兀 */
+  letter-spacing: 0.5px; /* 轻微字间距，提升可读性 */
+}
 
-    /* 卡片链接：去除下划线，整个卡片可点击 */
-    .card-link {
-      text-decoration: none; /* 去掉链接下划线 */
-      display: block; /* 链接占满卡片 */
-      height: 100%; /* 点击无死角 */
-    }
+/* 所有卡片链接：统一去除下划线+占满卡片（点击无死角） */
+.card-link1, .card-link2, .card-link3, .card-link4,
+.card-link5, .card-link6, .card-link7, .card-link8 {
+  text-decoration: none; /* 去掉链接默认下划线 */
+  display: block; /* 链接转为块级元素，占满卡片 */
+  height: 100%; /* 高度100%，确保整个卡片可点击 */
+}
 
-    /* 鼠标悬停效果（核心美化） */
-    .card:hover {
-      transform: translateY(-5px); /* 向上上浮5px */
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* 阴影加深 */
-      border-color: #e8f4f8; /* 边框变色 */
-      background-color: #fafafa; /* 背景轻微变浅 */
-    }
+/* 1. 第一个卡片（java软件安装）- 深绿色系 */
+.card-link1 .card {
+  background-color: #2e7d32; /* 卡片背景色 */
+  border-color: #1b5e20; /* 卡片边框色（略深于背景） */
+}
+.card-link1:hover .card {
+  background-color: #388e3c; /* 悬停时背景变亮 */
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.2); /* 同色系阴影，增强层次 */
+  transform: translateY(-5px); /* 向上上浮5px，交互感拉满 */
+  border-color: #2e7d32; /* 悬停时边框色加深 */
+}
 
-    /* 手机端适配：单列显示 */
-    @media (max-width: 768px) {
-      .card-container {
-        grid-template-columns: 1fr; /* 小屏幕单列 */
-        padding: 20px 15px; /* 调整留白 */
-        gap: 15px; /* 缩小间距 */
-      }
-      .card {
-        padding: 25px 15px; /* 调整内边距 */
-      }
-    }
+/* 2. 第二个卡片（java基础学习）- 浅绿色系 */
+.card-link2 .card {
+  background-color: #4caf50;
+  border-color: #388e3c;
+}
+.card-link2:hover .card {
+  background-color: #66bb6a;
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+  transform: translateY(-5px);
+  border-color: #4caf50;
+}
+
+/* 3. 第三个卡片（mysql基础学习）- 深蓝色系 */
+.card-link3 .card {
+  background-color: #1976d2;
+  border-color: #0d47a1;
+}
+.card-link3:hover .card {
+  background-color: #1e88e5;
+  box-shadow: 0 8px 25px rgba(25, 118, 210, 0.2);
+  transform: translateY(-5px);
+  border-color: #1976d2;
+}
+
+/* 4. 第四个卡片（vue3基础学习）- Vue标志性绿色 */
+.card-link4 .card {
+  background-color: #42b983;
+  border-color: #359e75;
+}
+.card-link4:hover .card {
+  background-color: #4fc08d;
+  box-shadow: 0 8px 25px rgba(66, 185, 131, 0.2);
+  transform: translateY(-5px);
+  border-color: #42b983;
+}
+
+/* 5. 第五个卡片（git基础学习）- 橙红色系 */
+.card-link5 .card {
+  background-color: #e53935;
+  border-color: #c62828;
+}
+.card-link5:hover .card {
+  background-color: #f44336;
+  box-shadow: 0 8px 25px rgba(229, 57, 53, 0.2);
+  transform: translateY(-5px);
+  border-color: #e53935;
+}
+
+/* 6. 第六个卡片（redis基础学习）- 红色系 */
+.card-link6 .card {
+  background-color: #d32f2f;
+  border-color: #b71c1c;
+}
+.card-link6:hover .card {
+  background-color: #e53935;
+  box-shadow: 0 8px 25px rgba(211, 47, 47, 0.2);
+  transform: translateY(-5px);
+  border-color: #d32f2f;
+}
+
+/* 7. 第七个卡片（mysql部署）- 浅蓝色系 */
+.card-link7 .card {
+  background-color: #2196f3;
+  border-color: #1976d2;
+}
+.card-link7:hover .card {
+  background-color: #42a5f5;
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.2);
+  transform: translateY(-5px);
+  border-color: #2196f3;
+}
+
+/* 8. 第八个卡片（redis部署）- 粉红色系 */
+.card-link8 .card {
+  background-color: #c2185b;
+  border-color: #880e4f;
+}
+.card-link8:hover .card {
+  background-color: #d81b60;
+  box-shadow: 0 8px 25px rgba(194, 24, 91, 0.2);
+  transform: translateY(-5px);
+  border-color: #c2185b;
+}
+
+/* 手机端响应式适配（小屏幕单列显示） */
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr; /* 小屏幕时卡片独占一列 */
+    padding: 20px 15px; /* 调整留白，适配手机屏幕 */
+    gap: 15px; /* 缩小卡片间距，节省手机空间 */
+  }
+  .card {
+    padding: 25px 15px; /* 调整内边距，适配手机显示 */
+  }
+  .card h3 {
+    font-size: 16px; /* 手机端字体略小，避免换行 */
+  }
+}
   </style>
 <body>
 
