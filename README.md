@@ -9,5 +9,3 @@
 <a href="/#/blog/redis部署" class="card-link"><div class="card"><h3>redis部署</h3></div></a>
 </div>
 
-[java基础学习](blog/java)
-
