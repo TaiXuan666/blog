@@ -1,101 +1,45 @@
-<!DOCTYPE html>
-<html lang="zh-CN"> <!-- 把 en 改成 zh-CN，适配中文 -->
-<head>
-  <meta charset="UTF-8">
-  <title>Java学习</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Java学习笔记，包含基础、Git、环境配置等">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="icon" href="assets/images/favicon.jpg" type="image/x-icon" />
-  
-  <!-- 1. 保留你的本地 CSS（如果有用），再新增美化样式（官方主题 + 自定义） -->
-  <link rel="stylesheet" href="assets/csshub.css"> <!-- 你的原有样式，不删除 -->
-  <!-- 新增：Docsify 美化主题（浅色清爽版，比默认好看） -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0.8/dist/css/theme-simple-light.css">
-  <!-- 新增：代码块高亮样式（Java/Git 代码会变色） -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.css">
-  
-  <!-- 2. 新增自定义样式（调整间距、颜色、图片等，按需修改） -->
-  <style>
-    /* 全局颜色配置（可换成你喜欢的颜色） */
-    :root {
-      --primary-color: #42b983; /* 主色调：绿色（Java 常用） */
-      --text-color: #333; /* 正文颜色 */
-      --bg-color: #f9f9f9; /* 页面背景 */
-      --sidebar-bg-color: #f5f5f5; /* 侧边栏背景 */
-    }
-    /* 内容区优化（避免文字太宽、太挤） */
-    .content {
-      max-width: 1100px; /* 最大宽度，避免文字拉太长 */
-      padding: 2rem 3rem; /* 上下内边距 */
-      margin: 0 auto; /* 居中显示 */
-    }
-    /* 标题样式（加下划线、调整间距） */
-    h1, h2, h3, h4 {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 0.5rem;
-    }
-    /* 链接样式（hover 变色） */
-    a {
-      color: var(--primary-color);
-      text-decoration: none;
-    }
-    a:hover {
-      color: #359469;
-      text-decoration: underline;
-    }
-    /* MD 图片美化（居中 + 圆角 + 阴影） */
-    .content img {
-      display: block;
-      margin: 1.5rem auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      max-width: 100%; /* 图片不超出内容区 */
-    }
-    /* 表格美化 */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-    }
-    table th, table td {
-      padding: 0.8rem;
-      border: 1px solid #ddd;
-      text-align: left;
-    }
-    table th {
-      background-color: var(--sidebar-bg-color);
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <div id="app">页面被外星人夺走了,全力抢回中...</div>
-  
-  <script>
-    // 3. 完善 Docsify 配置（加侧边栏、搜索、自动回到顶部）
-    window.$docsify = {
-      name: 'Java学习笔记', // 侧边栏顶部显示的名称
-      repo: '', // 如果有 GitHub 仓库，填地址（会显示 Fork 按钮）
-      loadSidebar: true, // 启用侧边栏（需要新建 _sidebar.md）
-      sidebar: '_sidebar.md', // 侧边栏配置文件
-      auto2top: true, // 切换页面时回到顶部
-      home: 'README.md', // 首页文件（如果你的首页是其他名字，比如 index.md，就改这里）
-      search: { // 搜索功能（输入关键词找笔记）
-        placeholder: '搜索笔记内容...',
-        depth: 6 // 搜索所有层级标题和内容
-      }
-    }
-  </script>
-  
-  <!-- 保留你的本地 JS，再新增 Docsify 核心脚本和插件 -->
-  <script src="assets/jshub.js"></script> <!-- 你的原有 JS，不删除 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script> <!-- Docsify 核心 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script> <!-- 侧边栏折叠 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script> <!-- 代码块复制按钮 -->
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-java.min.js"></script> <!-- Java 代码高亮 -->
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-git.min.js"></script> <!-- Git 代码高亮 -->
-</body>
-</html>
+/* 卡片容器：让卡片横向排列，自动换行 */
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* 超出宽度自动换行 */
+  gap: 20px; /* 卡片之间的间距 */
+  padding: 20px 0; /* 上下内边距 */
+  justify-content: center; /* 卡片居中排列 */
+}
+
+/* 卡片样式：圆角、阴影、正方形比例 */
+.card {
+  width: 280px; /* 卡片宽度 */
+  height: 200px; /* 卡片高度（可调整成接近正方形） */
+  background-color: white; /* 卡片背景色 */
+  border-radius: 12px; /* 圆角（数值越大，角越圆） */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 卡片阴影（立体感） */
+  padding: 20px; /* 卡片内边距 */
+  transition: all 0.3s; /* 动画效果：hover时平滑变化 */
+}
+
+/* 卡片标题样式 */
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--primary-color); /* 标题用主色调 */
+  border-bottom: none; /* 去掉之前的标题下划线 */
+}
+
+/* 卡片描述文字 */
+.card p {
+  color: #666; /* 描述文字颜色稍浅 */
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 卡片链接：去除默认样式 */
+.card-link {
+  text-decoration: none; /* 去掉链接下划线 */
+}
+
+/* 鼠标悬停效果：卡片上浮、阴影加深 */
+.card:hover {
+  transform: translateY(-5px); /* 向上移动5px */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* 阴影加深 */
+}
