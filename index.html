@@ -1,45 +1,52 @@
-/* 卡片容器：让卡片横向排列，自动换行 */
-.card-container {
-  display: flex;
-  flex-wrap: wrap; /* 超出宽度自动换行 */
-  gap: 20px; /* 卡片之间的间距 */
-  padding: 20px 0; /* 上下内边距 */
-  justify-content: center; /* 卡片居中排列 */
-}
-
-/* 卡片样式：圆角、阴影、正方形比例 */
-.card {
-  width: 280px; /* 卡片宽度 */
-  height: 200px; /* 卡片高度（可调整成接近正方形） */
-  background-color: white; /* 卡片背景色 */
-  border-radius: 12px; /* 圆角（数值越大，角越圆） */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 卡片阴影（立体感） */
-  padding: 20px; /* 卡片内边距 */
-  transition: all 0.3s; /* 动画效果：hover时平滑变化 */
-}
-
-/* 卡片标题样式 */
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  color: var(--primary-color); /* 标题用主色调 */
-  border-bottom: none; /* 去掉之前的标题下划线 */
-}
-
-/* 卡片描述文字 */
-.card p {
-  color: #666; /* 描述文字颜色稍浅 */
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* 卡片链接：去除默认样式 */
-.card-link {
-  text-decoration: none; /* 去掉链接下划线 */
-}
-
-/* 鼠标悬停效果：卡片上浮、阴影加深 */
-.card:hover {
-  transform: translateY(-5px); /* 向上移动5px */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* 阴影加深 */
-}
+<head>
+  <!-- 其他标签（meta、link） -->
+  <style>
+    /* 全局样式 */
+    :root {
+      --primary-color: #42b983;
+      --text-color: #333;
+      --bg-color: #f9f9f9;
+      --sidebar-bg-color: #f5f5f5;
+    }
+    /* 卡片容器 */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px 0;
+      justify-content: center;
+    }
+    /* 卡片样式 */
+    .card {
+      width: 280px;
+      height: 200px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: all 0.3s;
+    }
+    /* 卡片标题 */
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+      border-bottom: none;
+    }
+    /* 卡片描述 */
+    .card p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    /* 卡片链接 */
+    .card-link {
+      text-decoration: none;
+    }
+    /* 鼠标悬停 */
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
