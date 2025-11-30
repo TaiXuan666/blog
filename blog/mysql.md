@@ -2,19 +2,19 @@
 
 ## class 1 ：终端操作MySQL
 
-### 终端启动MySQL服务
+### *终端启动MySQL服务*
 
 ```cmd
 net start mysql80
 ```
 
-### 终端停止MySQL服务
+### *终端停止MySQL服务*
 
 ```cmd
 net stop mysql80
 ```
 
-### 终端登录mysql
+### *终端登录mysql*
 
 命令：mysql -u "用户名" -p "密码"
 
@@ -22,69 +22,71 @@ net stop mysql80
 mysql -u root -p root
 ```
 
+
+
 ## class 2 : Navicat操作MySQL
 
-### 创建数据库
+### *创建数据库*
 
 ```mysql
 create database name if not exists database_name;
 ```
 
-### 删除数据库
+### *删除数据库*
 
 ```mysql
 drop database name if not exists database_name ;
 ```
 
-### 打开数据库
+### *打开数据库*
 
 ```mysql
 use database_name;
 ```
 
-### 查看数据库
+### *查看数据库*
 
 ```mysql
 show DATABASES;
 ```
 
-### 查看字符集
+### *查看字符集*
 
 ```mysql
 show CHARACTER SET;
 ```
 
-### 创建数据库同时设置编码和校对规则
+### *创建数据库同时设置编码和校对规则*
 
 ```mysql
 CREATE DATABASE if not EXISTS haha CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 ```
 
-### 查看校对规则
+### *查看校对规则*
 
 ```mysql
 show VARIABLES like "CHARACTER_set_database";
 ```
 
-### 查看数据库的校对规则
+### *查看数据库的校对规则*
 
 ```mysql
 show VARIABLES like "collation_server";
 ```
 
-### 查看特定数据库的校对规则
+### *查看特定数据库的校对规则*
 
 ```mysql
 show CREATE DATABASE table_name;
 ```
 
-### 查看表的校对规则
+### *查看表的校对规则*
 
 ```mysql
 show CREATE TABLE table_name;
 ```
 
-### 创建表
+### *创建表*
 
 ```mysql
 CREATE table table_name
@@ -94,45 +96,47 @@ colum_name2 VARCHAR(3)
 );
 ```
 
-### 修改表名
+### *修改表名*
 
 ```mysql
 alter table table_name1 rename to table_name2;
 ```
 
-### 添加列主键
+### *添加列主键*
 
 ```mysql
 alter table table_name2 add PRIMARY key(colum_name);
 ```
 
-### 添加列
+### *添加列*
 
 ```mysql
 alter table table_name2 add colum_name3 int null;
 ```
 
-### 修改列类型
+### *修改列类型*
 
 ```mysql
 alter table table_name2 MODIFY colum_name3 char(4) null;
 ```
 
-### 删除列
+### *删除列*
 
 ```mysql
 alter table table_name2 drop colum_name3;
 ```
 
-### 删除表
+### *删除表*
 
 ```mysql
 drop TABLE if EXISTS table_name;
 ```
 
+
+
 ## class 3 : 字段约束
 
-### 单字段主键
+### *单字段主键*
 
 方法一: 定义列级主键
 
@@ -165,7 +169,7 @@ Primary Key(cid)
 );
 ```
 
-### 复合主键: 多个字段联合组成，只能定义为表的完整性约束。
+### *复合主键: 多个字段联合组成，只能定义为表的完整性约束。*
 
 ```mysql
 CREATE TABLE orderdetails(      
@@ -177,7 +181,7 @@ primary key(oid,gid)
 );
 ```
 
-### 自动增长约束
+### *自动增长约束*
 
 ```mysql
 CREATE TABLE users (
@@ -188,7 +192,7 @@ CREATE TABLE users (
 );
 ```
 
-### 非空约束
+### *非空约束*
 
 ```mysql
 CREATE TABLE category
@@ -199,7 +203,7 @@ CREATE TABLE category
 );
 ```
 
-### 检查约束 
+### *检查约束* 
 
 方法一：列级check约束
 
@@ -226,7 +230,7 @@ CREATE TABLE  student
     );
 ```
 
-### 唯一约束
+### *唯一约束*
 
 方法一： 列级唯一约束
 
@@ -249,7 +253,7 @@ unique(caname)
 );
 ```
 
-### 默认值约束
+### *默认值约束*
 
 ```mysql
 CREATE TABLE category
@@ -261,7 +265,7 @@ CREATE TABLE category
 
 ```
 
-### 外键约束 ： 必须先创建好customers表并且以cid列为主键
+### *外键约束 ： 必须先创建好customers表并且以cid列为主键*
 
 ```mysql
 CREATE TABLE orders (      
@@ -274,7 +278,7 @@ FOREIGN KEY(cid)  REFERENCES customers(cid)
 );    
 ```
 
-### 综合案例
+### *综合案例*
 
 ```mysql
 在一张表中设置各种约束：
@@ -289,9 +293,11 @@ CREATE TABLE employees (
 );
 ```
 
+
+
 ## class 4 ： 数据管理(增，删，查，改)
 
-### 添加记录
+### *添加记录*
 
 插入单条记录 :  
 
@@ -311,7 +317,7 @@ insert into table_name values(1);
 INSERT INTO table_name(col_name,col_name2...col_name3) VALUES (value1,value2.. value3);
 ```
 
-### 修改记录
+### *修改记录*
 
 修改id为1的名字
 
@@ -328,7 +334,7 @@ UPDATE table_name
 SET col_name=value, col_name1=value1,…col_name2=value2;
 ```
 
-### 删除记录
+### *删除记录*
 
 删除id为1的列
 
@@ -348,7 +354,9 @@ DELETE FROM table_name;
 truncate table;
 ```
 
-### delete 和 truncate 的区别:
+
+
+### *delete 和 truncate 的区别:*
 
 1.truncate 不带任何条件（包括where ，order by,limit等） 语法只有一条： TRUNCATE [TABLE] **tbl_name** 而delete可以。
 
@@ -368,7 +376,9 @@ truncate table;
 
 9.truncate比delete 快，大量数据时切不考虑事务时，可用truncate.
 
-### 4 种SQL语言:
+
+
+### *4 种SQL语言:*
 
 | 类别    |           英文全称           |      核心作用      |                常用语句                |
 | ------- | :--------------------------: | :----------------: | :------------------------------------: |
@@ -377,7 +387,9 @@ truncate table;
 | **DCL** |    Data Control Language     |    管理用户权限    |           `GRANT`, `REVOKE`            |
 | **TCL** | Transaction Control Language |    管理事务流程    |   `COMMIT`, `ROLLBACK`, `SAVEPOINT`    |
 
-### 单表查询和条件查询
+
+
+### *单表查询和条件查询*
 
 查询book表
 
@@ -445,7 +457,7 @@ SELECT bookauthor from book where bookauthor like "%轩";
 SELECT bookname from book where bookauthor like "黄__";
 ```
 
-### 排序
+### *排序*
 
 查询书籍表中书籍名称和书籍价格并按价格从高到低排列
 
@@ -468,7 +480,7 @@ where gprice>30
 order by gtypeid asc,gprice desc;
 ```
 
-### 限制行数
+### *限制行数*
 
 查找商品表中价格最靠前的从第3条记录开始的3条记录的名称和价格 
 
@@ -481,7 +493,7 @@ LIMIT 2,3;
 
 注意：偏移量初始行为0
 
-### 聚合函数
+### *聚合函数*
 
 查询书籍表中的书籍的数量，书籍价格的最大值、最小值、平均值和总库存数
 
@@ -489,7 +501,7 @@ LIMIT 2,3;
 select count(*) as 书籍总数, avg(Bprice) as 平均价格, MAX(Bprice) as 最高价格, min(Bprice) as 最小价格, sum(Bnumber) as 书本数量 from book;
 ```
 
-### 分组查询
+### *分组查询*
 
 对书籍表中的书籍按照书籍类别分类，统计各类书籍的数量和均价。
 
@@ -543,7 +555,7 @@ FROM books
 GROUP BY Btypeid;
 ```
 
-### 内连接
+### *内连接*
 
 查询书籍类别编号、书籍类别名称及其书籍的相关信息。
 
@@ -583,7 +595,7 @@ from category join books
 on caid = Btypeid and caid  = "03";
 ```
 
-### 子查询
+### *子查询*
 
 查询价格高于 “现代遗传学”的书籍的书籍号、书籍名称和书籍单价，并按价格从高到低排序。
 
@@ -611,102 +623,622 @@ on books.Btypeid = category.caid and category.caname = "软件开发"
 
 
 
+## class5: 视图和索引
 
+### *1.创建视图*
 
+查询商品表的编号和名称
 
+```mysql
+create view v_goods_gid
 
-
-
-
-
-
-
-
-
-
-
-
-
-# class 1
-
-// 此处为第一次上课做笔记的记录
-
-第一范式：不能有重复列
-	必须最小单元格
-	要有唯一标识
-第二范式：非主键列必须完全依赖于主键列   x---->y 可以传递依赖
-
-第三范式:满足第二范式
-	非主键列要依赖于非主键列  不能传递依赖
-	
-创建索引代码格式：	
-
-create index (索引名) on 表名(列[长度][升序/降序])
-
-创建视图格式（即虚拟一个表）
-create view 视图名
 as 
-select .....(和平常的子查询语句一样，构建一个视图，类似一个子表，定制每个顾客的信息)
 
-# class2
+select gid,gname from goods
+```
 
-set name名 # 定义一个变量名复制（可以计算）
-select name名  # 查询   select (select语句,例如where限制)
----- 理解：封装函数 (输入函数)-----
-DELIMITER // #创建临时结束符 #一定要大写
-CREATE PROCEDURE pro_querybypublisher(in publisher VARCHAR(20), in price int) #创建存储过程
-BEGIN #开始
-	SELECT * from goods
-	where publisher = gpublisher and price < gprice; # select语句 
-end // #  以 // 结束
-DELIMITER ; # 恢复结束符 ；
-call pro_querybypublisher('湖南教育出版社',50) #调用函数
+### *2.查询视图：*
 
-输出函数 
+```mysql
+select * from v_goods_gid;
+```
 
-用select ... into ... # 把...赋值给...
-调用时需要:
-初始化变量名 @变量名 = 0
-call 存储名（@变量名)
-select @变量名
+### *3.修改视图：*
 
-# class 3 
+```mysql
+alter view v_goods_gid
 
-if...else语句 （判断语句）
-DELIMITER //
-CREATE PROCEDURE checkreader(IN reader_id VARCHAR(10)# 输入参数)  注：输入参数传值进存储过程 ,输出参数是在存储过程传回值
-begin	
-		declare a VARCHAR(50) DEFAULt null;
-    SELECT readerid INTO a FROM reader 
-		WHERE readerid = reader_id;
-    if a  is null THEN
-       SELECT '没有此读者！';
-    ELSE
-        SELECT * FROM reader WHERE readerid = reader_id;
-    END IF; # 结束if语句
-END //
+as 
+
+select gid,gname,gwriter from goods;
+```
+
+### *4.更新视图中的数据：*
+
+（1）向视图中添加数据：
+
+```mysql
+insert into v_goods_gid values('080001','计算机导论');
+```
+
+（2）修改视图中的数据：
+
+```mysql
+update v_goods_gid set gname='计算机基础' where gid='080001'
+```
+
+（3）删除视图中的数据：
+
+```mysql
+delete from v_goods_gid where gid='080001'
+```
+
+### *5.删除视图：*
+
+```mysql
+drop view v_goods_gid
+```
+
+### ***6.为多表创建视图：***
+
+\#创建视图，查询商品类别编号、类别名称以及商品名称
+
+```mysql
+CREATE VIEW v_goods_category
+
+AS
+
+SELECT goods.gname AS 图书名, category.caname AS 分类名,
+
+goods.gwriter AS 作者, goods.gpublisher AS 出版社, goods.gprice AS 单价
+
+FROM goods
+
+JOIN category ON goods.gtypeid = category.caid;
+
+
+```
+
+
+
+### *索引概要:*
+
+*一、**什么是索引***
+
+在关系数据库中，索引是一种单独的、物理的对数据库表中一列或多列的值进行排序的一种存储结构，它是某个表中一列或若干列值的集合和相应的指向表中物理标识这些值的数据页的逻辑指针清单。索引的作用相当于图书的目录，可以根据目录中的页码快速找到所需的内容。
+
+
+
+![image-20251130120845041](mysql.assets/image-20251130120845041.png)
+
+
+
+***二、mysql中索引有哪些类型***
+
+普通索引
+
+通索引是mysql里最基本的索引，没有什么特殊性，在任何一列上都能进行创建。
+
+```mysql
+undefined-- 创建索引的基本语法
+CREATE INDEX indexName ON table(column(length));
+-- 例子 length默认我们可以忽略
+CREATE INDEX idx_name ON user(name);
+```
+
+主键索引
+
+我们知道每张表一般都会有自己的主键，mysql会在主键上建立一个索引，这就是主键索引。主键是具有唯一性并且不允许为NULL，所以他是一种特殊的唯一索引。一般在建立表的时候选定。
+
+**
+**
+
+***唯一索引***
+
+和普通索引类似，但是该索引有个特点，索引数据列中的值必须能出现一次，也就是索引列值要求唯一，需要使用UNIQUE关键词。
+
+复合索引
+
+复合索引也叫组合索引，指的是我们在建立索引的时候使用多个字段，例如同时使用身份证和手机号建立索引，同样的可以建立为普通索引或者是唯一索引。
+
+复合索引的使用复合最左原则。举个例子 我们使用 phone和name创建索引。
+
+```mysql
+undefined-- 创建索引的基本语法
+CREATE  INDEX indexName ON table(column1(length),column2(length));
+-- 例子 
+CREATE INDEX idx_phone_name ON user(phone,name);
+```
+
+我们看下面的查询语句，
+
+```mysql
+undefinedSELECT * FROM user_innodb where name = '程冯冯';
+SELECT * FROM user_innodb where phone = '15100046637';
+SELECT * FROM user_innodb where phone = '15100046637' and name = '程冯冯';
+SELECT * FROM user_innodb where name = '程冯冯' and phone = '15100046637';
+```
+
+三条sql只有 2 、 3、4能使用的到索引idx_phone_name,因为条件里面必须包含索引前面的字段才能够进行匹配。而3和4相比where条件的顺序不一样，为什么4可以用到索引呢？是因为mysql本身就有一层sql优化，他会根据sql来识别出来该用哪个索引，我们可以理解为3和4在mysql眼中是等价的。
+
+全文索引
+
+全文索引主要用来查找文本中的关键字，而不是直接与索引中的值相比较。fulltext索引跟其它索引大不相同，它更像是一个搜索引擎，而不是简单的where语句的参数匹配。fulltext索引配合match against操作使用，而不是一般的where语句加like。
+
+它可以在create table，alter table ，create index使用，不过目前只有char、varchar，text 列上可以创建全文索引。正常情况下我们也不会使用到全文索引，因为这不是mysql的专长。
+
+空间索引
+
+空间索引是对空间数据类型的字段建立的索引，MYSQL中的空间数据类型有4种，分别是GEOMETRY、POINT、LINESTRING、POLYGON。MYSQL使用SPATIAL关键字进行扩展，使得能够用于创建正规索引类型的语法创建空间索引。
+
+创建空间索引的列，必须将其声明为NOT NULL，空间索引只能在存储引擎为MYISAM的表中创建。空间索引一般是用不到了，了解即可。
+
+
+
+***三、索引的数据结构***
+
+B+Tree
+
+![image-20251130120908442](mysql.assets/image-20251130120908442.png)
+
+***索引是不是创建的越多越好呢***
+
+答：并不是
+
+- 我们已经知道了索引即数据，那么我们过多的创建索引就会导致数据量的增加。
+- 我们知道索引是一颗平衡树，我们在更新数据的同时，索引也在频繁的进行页分裂和合并，非常耗时。
+
+***哪些列适合添加索引***
+
+- 区分度大的列
+- 需要经常where的字段
+- 需要join连表的字段
+- 需要排序的字段
+- 需要group by的字段
+
+
+
+### ***1．创建索引***
+
+  创建表时可以直接创建索引，这种方式最简单、方便。其基本语法形式如下：
+
+```mysql
+CREATE TABLE tb_name
+
+( 
+
+ col_name1 data_type,
+
+ col_name2 data_type,
+
+[UNIQUE | FULLTEXT | SPATIAL] [INDEX | KEY] [index_name](col_name [length]) [ASC | DESC]
+
+)
+```
+
+其中：
+
+- UNIQUE、FULLTEXT和SPATIAL为可选参数，分别表示唯一索引、全文索引和空间索引。
+-  INDEX和 KEY为同义词，两者作用相同，用来指定创建索引。
+- col_name为需要创建索引的字段列。
+-  index_name指定索引的名称，为可选参数，如果不指定，MySQL默认col_name为索引值；
+- length为可选参数，表示索引的长度，只有字符串类型的字段才能指定索引长度。
+
+ASC或DESC参数用于指定数据表的排序顺序。
+
+**【例】在商品表goods中的商品名称gname字段上建立普通索引。**  
+
+```mysql
+CREATE TABLE goods
+
+(
+
+ gid    char(6)   not null  primary key,
+
+ gname   varchar(50),
+
+ gtypeid  char(2)  ,
+
+ gwriter  varchar(50),
+
+ gpublisher varchar(50),
+
+ gISBN   varchar(50),
+
+ gprice   double,
+
+ gcount  int,
+
+INDEX(gname)
+
+);
+```
+
+
+
+### ***2．创建升序索引***
+
+在已经存在的表中，可以直接为表上的一个或几个字段创建索引。基本形式如下：
+
+CREATE [UNIQUE | FULLTEXT| SPATIAL] INDEX in_name
+
+ON tb_name( col_name[(length)] [ASC | DESC ]);
+
+命令的参数说明如下：
+
+- in_name为索引名称，该参数作用是给用户创建的索引赋予新的名称。
+- UNIQUE | FULLTEXT | SPATIAL为可选参数，用于指定索引类型，分别表示唯一索引、全文索引、空间索引。
+- col_name表示字段的名称，该字段必须预存在用户想要操作的数据表中，如果该数据表中不存在用户指定的字段，则系统会提示异常。
+- length为可选参数，用于指定索引长度。
+- ASC | DESC参数用于指定数据表的排序顺序。   
+
+***【例】在goods表的gname列上建立一个升序索引index_cname。***
+
+```mysql
+Create index index_cname on goods(gname asc);
+```
+
+***为表的多个字段创建符合索引***
+
+***【例】在goodstest表上按照gname的升序，gtypeid降序建立一个索引。***
+
+```mysql
+Create index index_cname_gtypeid on goods(gname asc,gtypeid desc);
+```
+
+### ***3.删除索引***
+
+语法：DROP INDEX in_name ONtb_name;
+
+其中，in_name参数指要删除的索引的名称；tb_name参数指索引所在的表的名称。
+
+***【例】利用DROP命令，删除数据表goods中的索引。***
+
+```mysql
+Drop index index_cname on goods;
+```
+
+
+
+## class6:存储过程
+
+### *不带参数的存储过程*
+
+```mysql
+#【例】创建一个无参数的存储过程goods_info，查找所有图书的书名、作者、出版社和ISBN，并且调用该存储过程，查看输出结果。
+
+#（1）创建存储过程goods_info。
+
+DELIMITER $$
+
+CREATE PROCEDURE goods_Info ()
+
+BEGIN
+
+   SELECT gname,gwriter,gpublisher,gISBN
+
+   FROM goods;
+
+END $$
+
 DELIMITER ;
-call checkreader('0018'); #调用存储
-call checkreader('00'); #调用存储
-drop PROCEDURE checkreader; #删除存储
 
-开始事务  回滚事务
-DELIMITER //
-CREATE PROCEDURE up_booktype(in u_bookid varchar(50))
+
+
+#(2)调用存储过程
+
+call goods_info();
+```
+
+
+
+### *带IN参数的存储过程*
+
+```mysql
+# MySQL 存储过程支持三种类型的参数，即输入参数、输出参数和输入/输出参数，分别用 IN、OUT和INOUT 三个关键字标识。其中，输入参数可以  传递给一个存储过程，输出参数用于存储过程需要返回一个操作结果的情形，而输入/输出参数既可以充当输入参数也可以充当输出参数。
+
+
+#【例】创建一个带有输入参数的存储过程pro_querybygoodid，查找指定书籍编号的书名、作者、出版社和ISBN，并且调用该存储过程，查看输出结果。
+
+#（1）创建存储过程pro_querybygoodid。
+
+DELIMITER $$
+
+CREATE PROCEDURE pro_querybygoodid(IN id CHAR(6))
+
+BEGIN
+
+  SELECT gname,gwriter,gpublisher,gISBN
+
+  FROM goods  WHERE gid = id;
+
+END $$
+
+DELIMITER ;
+
+
+
+#（2）调用存储过程pro_querybygoodid。
+
+CALL pro_querybygoodid('030003');
+
+
+
+# 带多个输入参数的存储过程
+
+#【例】创建一个带有输入参数的存储过程pro_price_publisher，查找某个出版社并且价格大于某个值的书名、作者、出版社和ISBN，并且调用该存储过程，查找“湖南教育出版社”并且价格大于50的书籍，查看输出结果。
+
+DELIMITER $$
+
+create PROCEDURE pro_price_publisher(in publisher varchar(50),in price double)
+
 begin
-DECLARE a varchar(50); # 声明变量
-start TRANSACTION;  #开始事务
-	SELECT typeid into a from book 
-	where typeid = u_bookid; # 判断book表里的typeid和输入参数是否一致，不一致为空
-	update book set typeid = u_bookid # 修改记录，把book表里typeid修改成传入输数
-	where bookid = 'TH/2345';
-if a = u_bookid  then  # 判断book表里的typeid和输入参数是否一致
-	SELECT '提交事务';
-	COMMIT; # 提交事务
-else
-	SELECT '回滚事务';
-	ROLLBACK; #回滚事务
-end if; # 结束if语句
-END //
+
+	select gname,gwriter,gpublisher,gISBN
+
+	from goods 
+
+	where gpublisher= publisher and gprice>price;
+
+end $$
+
 DELIMITER ;
-CALL up_booktype(30);
+
+
+call pro_price_publisher('湖南教育出版社',50)
+```
+
+
+
+### *带OUT参数的存储过程*
+
+```mysql
+#创建一个带有输入和输出参数的存储过程pro_countbytypeid，计算指定书籍分类编号（03）的图书总数量，并且调用该存储过程，查看输出结果。
+
+DELIMITER $$
+
+create PROCEDURE pro_countbytypeid(in id char(2),out number int)
+
+begin
+
+	select count(*) into number from goods where gtypeid=id;
+
+end$$
+
+DELIMITER ;
+
+
+call pro_countbytypeid('03',@number)
+
+select @number;
+```
+
+
+
+## class7:事务操作
+
+### *事务控制语句*
+
+**事务的定义：**
+
+***•事务(TRANSACTION)是作为单个逻辑工作单元执行的一系列操作***
+
+***•这些操作作为一个整体一起向系统提交，要么都执行、要么都不执行***
+
+***•事务是一个不可分割的工作逻辑单元***
+
+
+
+**事务的特性：**
+
+***一般来说，事务是必须满足4个条件（ACID）：***
+
+***原子性（Atomicity，或称不可分割性）、一致性（Consistency）、隔离性（Isolation，又称独立性）、持久性（Durability）。***
+
+***•原子性：一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。***
+
+***•一致性：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作。***
+
+***•隔离性：数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Readuncommitted）、读提交（readcommitted）、可重复读（repeatableread）和串行化（Serializable）。***
+
+***•持久性：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。***
+
+
+
+**事务控制语句：**
+
+- ***start transaction,开启事务***
+- ***commit transaction，提交事务***
+- ***rollback transaction，回滚事务***
+
+
+
+***案例1：提交事务***
+
+```mysql
+start transaction;
+
+insert into goods(gid,gname,gtypeid) values('090001','计算机基础',‘03');
+
+commit;
+```
+
+***案例2：回滚事务***
+
+```mysql
+start transaction;
+
+insert into goods(gid,gname,gtypeid) values('090002','计算机基础1','03');
+
+rollback;
+```
+
+***案例3：***
+
+```mysql
+# 修改书籍表goods的某一本书籍的图书类型，如果修改的图书类型已存在于图书分类表则提交事务，修改一个不存在的图书类型则回滚事务。
+
+DELIMITER $$
+
+CREATE PROCEDURE upcid(in gtid char(2)) #创建存储过程，输入参数为商品类别编号gtid
+
+BEGIN
+
+DECLARE cid char(2);#定义变量cid
+
+START TRANSACTION;#开始事务
+
+UPDATE goods SET gtypeid=gtid WHERE gid='010001';#修改goods表的记录
+
+SELECT caid INTO cid FROM category WHERE caid=gtid;#查找商品类别表中caid等于gtid的caid,并存储在变量cid中
+
+IF cid=gtid THEN #如果商品类别表中存在gtid
+
+SELECT CONCAT(gtid,'修改成功，提交事务！') ;#输出字符串
+
+    COMMIT ; #提交事务
+
+ ELSE
+
+    SELECT CONCAT(gtid,'修改失败，回滚事务！') ;#输出字符串
+
+   ROLLBACK;#回滚事务
+
+END IF;
+
+END $$
+
+DELIMITER;
+
+
+call upcid('03');#执行存储过程，带入‘03',修改成功
+
+call upcid('11');#执行存储过程，带入‘11',修改失败
+```
+
+### 
+
+## class8:数据备份和恢复
+
+***进入DOS命令窗口，切换到mysql安装目录***
+
+```cmd
+cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+```
+
+***备份bookshop数据库***
+
+```cmd
+mysqldump  -u root  -p  bookshop >D:\backup_bookshop.sql
+
+#Enter password: ****
+```
+
+***恢复bookshop数据库***
+
+```cmd
+mysql  -u root  -p  bookshop <D:\backup_bookshop.sql
+
+# Enter password: ****
+```
+
+***备份bookshop数据库的customers表和goods表***
+
+```cmd
+mysqldump  -u root  -p  bookshop customers goods >d:\backup_customers-goods.sql
+
+# Enter password: ****
+```
+
+
+
+## class9:创建和删除用户
+
+***在对 MySQL 的日常管理和实际操作中,为了数据库的安全,避免恶意用户使用 root 账号控制数据库,我们通常会创建一系列具备适当权限的账号.这样,我们就可以不用或少用 root 账号登录MySQL数据库,在一定程度上确保数据的安全访问.***
+
+
+
+***创建用户***
+
+***语法:***
+
+```
+CREATE USER '用户名'[@'登录主机名'] [ IDENTIFIED BY ] [ '密码' ]
+```
+
+***语法说明:***     
+
+ ***用户名: 要创建的用户名。***   
+
+ ***登录主机名: 用户连接 MySQL 时所在主机的名字,如果是本地用户可用          localhost;如果想让该用户可以从任意远程主机登陆,可以使用通配符%。            IDENTIFIED BY: 用于指定用户账号对应的密码,若该用户账号无密码,则可省略此子句。***
+
+
+
+***注意:***
+
+1. ***如果使用 CREATE USER 语句时没有为用户指定密码,那么 MySQL 允许该用户可以不使用密码登录系统.从安全的角度而言,不推荐这种做法.***
+2. ***使用 CREATE USER 语句必须拥有 MySQL 中 MySQL 数据库的 INSERT 权限或全局 CREATE USER 权限.***
+3. ***使用 CREATE USER 语句创建一个用户账号后,会在系统自身的 MySQL 数据库的 user 表中添加一条新记录.若创建的账户已经存在,则语句执行时会出现错误.***
+4. ***新创建的用户拥有的权限很少.他们可以登录 MySQL,只允许进行不需要权限的操作,如使用 SHOW 语句查询所有存储引擎和字符集的列表等.***
+5. ***如果两个用户具有相同的用户名和不同的主机名,MySQL 会将他们视为不同的用户,并允许为这两个用户分配不同的权限集合.***
+
+
+
+***例子:***
+
+***\# 创建用户neil，密码为123456,允许在任何远程主机上登录MySQL***
+
+```mysql
+CREATE USER 'neil'@'%' IDENTIFIED BY '123456';
+```
+
+***\# 创建用户neil1，密码为123456,允许在主机192.168.1.10上登录MySQL***
+
+```mysql
+CREATE USER 'neil1'@'192.168.1.10' IDENTIFIED BY '123456';
+```
+
+***\# 创建用户neil2，密码为123456,允许在本机登录MySQL***
+
+```mysql
+CREATE USER 'neil2'@'localhost' IDENTIFIED BY '123456';
+```
+
+
+
+***删除用户***
+
+***语法：***
+
+```mysql
+DROP USER user [,user]…;
+```
+
+***例：***
+
+```mysql
+DROP USER 'neil2'@'localhost' ;
+```
+
+***修改用户名***
+
+**语法：**
+
+```mysql
+RENAME USER old_user TO new_user
+
+[, old_user TO new_user]
+```
+
+***例：***
+
+```mysql
+RENAME USER 'user2'@'localhost' TO 'Jenny'@'localhost';
+```
+
+
+
+
+
+
+

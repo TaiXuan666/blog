@@ -8,3 +8,4 @@
 <a href="/#/blog/mysql部署" class="card-link7"><div class="card"><h3>mysql部署</h3></div></a>
 <a href="/#/blog/redis部署" class="card-link8"><div class="card"><h3>redis部署</h3></div></a>
 </div>
+
