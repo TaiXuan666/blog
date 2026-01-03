@@ -78,6 +78,8 @@ nvm（Node Version Manager）： 用来管理node版本
 
 ![image-20250911132619731](java软件开发工具.assets/image-20250911132619731.png)
 
+![image-20260103192108440](java软件开发工具.assets/image-20260103192108440.png)
+
 安装完成之后node也配置一下环境变量
 
 ![image-20250911133012951](java软件开发工具.assets/image-20250911133012951.png)
