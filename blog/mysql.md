@@ -29,13 +29,13 @@ mysql -u root -p root
 ### *创建数据库*
 
 ```mysql
-create database name if not exists database_name;
+create database if not exists database_name;
 ```
 
 ### *删除数据库*
 
 ```mysql
-drop database name if not exists database_name ;
+drop database if exists database_name ;
 ```
 
 ### *打开数据库*
