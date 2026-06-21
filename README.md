@@ -7,5 +7,5 @@
 <a href="/#/blog/redis" class="card-link6"><div class="card"><h3>redis基础学习</h3></div></a>
 <a href="/#/blog/mysql部署" class="card-link7"><div class="card"><h3>mysql部署</h3></div></a>
 <a href="/#/blog/redis部署" class="card-link8"><div class="card"><h3>redis部署</h3></div></a>
+<a href="/#/blog/hardware" class="card-link8"><div class="card"><h3>硬件知识库</h3></div></a>
 </div>
-
